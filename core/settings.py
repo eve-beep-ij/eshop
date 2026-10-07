@@ -33,6 +33,11 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
 ]
 
+CSRF_TRUSTED_ORIGIN = [
+    "eshop-production-0316.up.railway.app",
+    
+]
+
 
 # Application definition
 
