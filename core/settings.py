@@ -33,7 +33,7 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
 ]
 
-CSRF_TRUSTED_ORIGIN = [
+CSRF_TRUSTED_ORIGINS = [
     "https://eshop-production-0316.up.railway.app",
     
 ]
