@@ -28,9 +28,9 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = [
+    "eshop-production-0316.up.railway.app",
     "localhost",
     "127.0.0.1",
-    "eshop-production-0316.up.railway.app",
 ]
 
 
