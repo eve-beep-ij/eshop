@@ -4,7 +4,7 @@ charset-normalizer==3.5.2
 cloudinary==1.46.3
 dj-database-url==3.1.2
 Django==6.1
-django-cloudinary-storage==0.3.0
+django-cloudinary-storage @ git+https://github.com/klis87/django-cloudinary-storage.git@1d45a5b165b33f78c69fcd00842b33bbb312499b
 django-cors-headers==4.9.0
 djangorestframework==3.18.0
 djangorestframework_simplejwt==5.5.1
