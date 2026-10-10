@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate
 from django.utils import timezone
 from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
-import resend
+# import resend
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
 
