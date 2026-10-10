@@ -4,9 +4,9 @@ from datetime import timedelta
 import secrets
 
 from django.contrib.auth import authenticate
-from django.utils import timezone
-from django.template.loader import render_to_string
-from django.core.mail import EmailMultiAlternatives
+# from django.utils import timezone
+# from django.template.loader import render_to_string
+# from django.core.mail import EmailMultiAlternatives
 # import resend
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -33,24 +33,24 @@ class RegisterSerializer(serializers.ModelSerializer):
             password=validated_data["password"],
             first_name =validated_data["first_name"],
             last_name=validated_data["last_name"],
-            is_active=False
+            is_active=True,
         )
 
-        otp = str(secrets.randbelow(900000) + 100000)
+        # otp = str(secrets.randbelow(900000) + 100000)
 
-        EmailVerification.objects.create(
-            user=user,
-            otp=otp,
-            expires_at=timezone.now() + timedelta(minutes=10)
-        )
+        # EmailVerification.objects.create(
+        #     user=user,
+        #     otp=otp,
+        #     expires_at=timezone.now() + timedelta(minutes=10)
+        # )
 
-        html_message = render_to_string(
-            "verification_email.html",
-            {
-                "otp": otp,
-                "user": user,
-            }
-        )
+        # html_message = render_to_string(
+        #     "verification_email.html",
+        #     {
+        #         "otp": otp,
+        #         "user": user,
+        #     }
+        # )
 
         # resend.Email.send({
         #     "from": settings.DEFAULT_FROM_EMAIL,
@@ -59,18 +59,18 @@ class RegisterSerializer(serializers.ModelSerializer):
         #     "html": html_message,
         # })
 
-        email = EmailMultiAlternatives(
-            subject="Verify your email",
-            body=f"Your verification code is {otp}",
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            to=[user.email],
-        )
+        # email = EmailMultiAlternatives(
+        #     subject="Verify your email",
+        #     body=f"Your verification code is {otp}",
+        #     from_email=settings.DEFAULT_FROM_EMAIL,
+        #     to=[user.email],
+        # )
 
 
-        email.attach_alternative(html_message, "text/html") 
+        # email.attach_alternative(html_message, "text/html") 
 
-        result = email.send(fail_silently=False)
-        print("EMAIL SEND RESULT:", result)    
+        # result = email.send(fail_silently=False)
+        # print("EMAIL SEND RESULT:", result)    
 
 
 
